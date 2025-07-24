@@ -52,7 +52,7 @@ docker-compose up -d
 The project automatically builds and pushes Docker images to GitHub Container Registry:
 
 - **Registry**: `ghcr.io/skill-wanderer/keycloak-sso/keycloak-skill-wanderer`
-- **Latest**: `ghcr.io/skill-wanderer/keycloak-sso/keycloak-skill-wanderer:latest`
+- **Latest**: `ghcr.io/skill-wanderer/keycloak-sso/keycloak-skill-wanderer:latest
 - **Tagged versions**: Available for each release
 
 ### Pulling the Image
@@ -62,7 +62,7 @@ The project automatically builds and pushes Docker images to GitHub Container Re
 docker pull ghcr.io/skill-wanderer/keycloak-sso/keycloak-skill-wanderer:latest
 
 # Pull a specific version
-docker pull ghcr.io/skill-wanderer/keycloak-sso/keycloak-skill-wanderer:v1.0.0
+docker pull ghcr.io/skill-wanderer/keycloak-sso/keycloak-skill-wanderer:latest
 ```
 
 ## Access
