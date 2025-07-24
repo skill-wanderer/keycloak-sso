@@ -1,0 +1,31 @@
+# Docker Compose override for custom Keycloak image with Skill-Wanderer theme
+version: '3.8'
+
+services:
+  keycloak:
+    # Use the GitHub Container Registry image or build locally
+    # Option 1: Use pre-built image from GitHub Container Registry
+    image: ghcr.io/skill-wanderer/keycloak-sso/keycloak-skill-wanderer:latest
+    
+    # Option 2: Build locally (comment out the image line above and uncomment below)
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    # image: keycloak-skill-wanderer:latest
+    
+    # Remove the volume mount since the theme is now built into the image
+    volumes: []
+    environment:
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
+      KC_HOSTNAME_STRICT_BACKCHANNEL: false
+      KC_HTTP_ENABLED: true
+      KC_HOSTNAME_STRICT_HTTPS: false
+      KC_HEALTH_ENABLED: true
+      KC_METRICS_ENABLED: true
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: keycloak
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
