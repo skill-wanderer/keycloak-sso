@@ -139,48 +139,60 @@ html {
 }
 
 /* Button styling - matching bright theme */
-.login-pf .btn-primary {
-    background: linear-gradient(135deg, #FF6B35 0%, #E85D25 100%);
-    border: none;
+.login-pf .btn-primary,
+.login-pf input[type="submit"],
+.login-pf input[name="login"] {
+    background: #CED4DA;
+    border: 1px solid #dee2e6;
     border-radius: 8px;
     padding: 14px 28px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem; /* Relative to 1.25rem base = 20px */
     text-transform: none;
     letter-spacing: 0.3px;
     transition: all 0.3s ease;
     width: 100%;
     margin-top: 20px;
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    color: #333333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
-.login-pf .btn-primary::before {
+.login-pf .btn-primary::before,
+.login-pf input[type="submit"]::before,
+.login-pf input[name="login"]::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
     transition: left 0.5s ease;
 }
 
-.login-pf .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
-    background: linear-gradient(135deg, #E85D25 0%, #FF6B35 100%);
+.login-pf .btn-primary:hover,
+.login-pf input[type="submit"]:hover,
+.login-pf input[name="login"]:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background: #ADB5BD;
+    border-color: #ced4da;
 }
 
-.login-pf .btn-primary:hover::before {
+.login-pf .btn-primary:hover::before,
+.login-pf input[type="submit"]:hover::before,
+.login-pf input[name="login"]:hover::before {
     left: 100%;
 }
 
-.login-pf .btn-primary:active {
+.login-pf .btn-primary:active,
+.login-pf input[type="submit"]:active,
+.login-pf input[name="login"]:active {
     transform: translateY(0);
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Hyperlinks - Forgot Password and Registration */
@@ -350,14 +362,18 @@ html {
 }
 
 /* Loading state for button */
-.login-pf .btn-primary:disabled {
+.login-pf .btn-primary:disabled,
+.login-pf input[type="submit"]:disabled,
+.login-pf input[name="login"]:disabled {
     opacity: 0.7;
     cursor: not-allowed;
     transform: none;
 }
 
 /* Focus states for accessibility */
-.login-pf .btn-primary:focus {
+.login-pf .btn-primary:focus,
+.login-pf input[type="submit"]:focus,
+.login-pf input[name="login"]:focus {
     outline: 2px solid #FF6B35;
     outline-offset: 2px;
 }
