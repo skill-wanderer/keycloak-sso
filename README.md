@@ -376,7 +376,7 @@ docker-compose ps
 
 ## License
 
-This project is licensed under the same terms as the Skill-Wanderer platform.
+This project is licensed under the [Apache License](LICENSE).
 
 ## Contributing
 
