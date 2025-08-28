@@ -81,10 +81,6 @@ html {
     letter-spacing: 0.5px;
 }
 
-/* Font Awesome icon styling */
-.fa, .fas, .far, .fal, .fab {
-    font-family: "Font Awesome 6 Free", sans-serif;
-}
 
 /* Icon specific styling for form elements */
 .login-pf .form-control-with-icon {
