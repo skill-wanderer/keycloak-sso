@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <#if properties.meta?has_content>
         <#list properties.meta?split(' ') as meta>
@@ -38,31 +39,32 @@
     </#if>
 </head>
 
-<body class="${properties.kcBodyClass!}">
-  <div class="${properties.kcLoginClass!}">
-    <div id="kc-container" class="${properties.kcContainerClass!}">
-      <div id="kc-container-wrapper" class="${properties.kcContainerWrapperClass!}">
+<body class="bg-brand-pattern min-h-screen font-sans leading-relaxed text-gray-800 ${properties.kcBodyClass!}">
+  <div class="min-h-screen flex items-start justify-center p-1.5 pt-2.5 ${properties.kcLoginClass!}">
+    <div id="kc-container" class="flex items-start justify-center p-1.5 pt-2.5 ${properties.kcContainerClass!}">
+      <div id="kc-container-wrapper" class="w-full max-w-[380px] ${properties.kcContainerWrapperClass!}">
 
         <div id="kc-header" class="${properties.kcHeaderClass!}">
-          <div id="kc-header-wrapper"
-               class="${properties.kcHeaderWrapperClass!}"><#nested "header"></div>
+          <div id="kc-header-wrapper" class="text-center ${properties.kcHeaderWrapperClass!}">
+            <#nested "header">
+          </div>
         </div>
 
-        <div class="${properties.kcFormCardClass!}">
+        <div class="bg-white rounded-2xl shadow-card animate-fade-in overflow-hidden transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5 ${properties.kcFormCardClass!}">
           <div id="kc-content">
             <div id="kc-content-wrapper">
 
               <#-- App-initiated actions should not see warning messages about the need to complete the action -->
               <#-- during login.                                                                               -->
               <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-                  <div class="alert-${message.type} ${properties.kcAlertClass!} pf-m-<#if message.type = 'error'>danger<#else>${message.type}</#if>">
-                      <div class="pf-c-alert__icon">
-                          <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
-                          <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
-                          <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
-                          <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
+                  <div class="mx-6 mt-4 <#if message.type = 'error'>alert-error-custom<#elseif message.type = 'success'>alert-success-custom<#elseif message.type = 'warning'>alert-warning-custom<#else>alert-info-custom</#if> ${properties.kcAlertClass!}">
+                      <div class="flex items-center gap-2">
+                          <#if message.type = 'success'><span class="text-green-600 ${properties.kcFeedbackSuccessIcon!}"></span></#if>
+                          <#if message.type = 'warning'><span class="text-yellow-600 ${properties.kcFeedbackWarningIcon!}"></span></#if>
+                          <#if message.type = 'error'><span class="text-red-600 ${properties.kcFeedbackErrorIcon!}"></span></#if>
+                          <#if message.type = 'info'><span class="text-blue-600 ${properties.kcFeedbackInfoIcon!}"></span></#if>
+                          <span class="font-medium ${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
                       </div>
-                          <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
                   </div>
               </#if>
 
@@ -71,9 +73,10 @@
               <#if auth?has_content && auth.showTryAnotherWayLink() && showAnotherWayIfPresent>
                 <form id="kc-select-try-another-way-form" action="${url.loginAction}" method="post" <#if displayWide>class="${properties.kcContentWrapperClass!}"</#if>>
                     <div <#if displayWide>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
-                        <div class="${properties.kcFormGroupClass!}">
+                        <div class="mb-4 ${properties.kcFormGroupClass!}">
                             <input type="hidden" name="tryAnotherWay" value="on"/>
                             <a href="#" id="try-another-way"
+                               class="text-brand-500 font-medium hover:text-brand-600 hover:underline transition-all duration-300"
                                onclick="document.forms['kc-select-try-another-way-form'].submit();return false;">${msg("doTryAnotherWay")}</a>
                         </div>
                     </div>
@@ -81,7 +84,7 @@
               </#if>
 
               <#if displayInfo>
-                  <div id="kc-info" class="${properties.kcSignUpClass!}">
+                  <div id="kc-info" class="bg-gray-50 border-t border-gray-200 px-6 py-5 text-center rounded-b-2xl ${properties.kcSignUpClass!}">
                       <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
                           <#nested "info">
                       </div>

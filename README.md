@@ -102,6 +102,36 @@ The `skill-wanderer-theme` provides a modern, bright orange-themed login experie
   - Responsive layout
   - Custom Skill-Wanderer logo
   - Accessibility features
+  - **Tailwind CSS** for styling
+
+### Theme Development with Tailwind CSS
+
+This theme uses Tailwind CSS for styling. To make changes to the theme styles:
+
+1. **Install dependencies**:
+```bash
+npm install
+```
+
+2. **Development mode** (watches for changes):
+```bash
+npm run dev
+```
+
+3. **Build for production**:
+```bash
+npm run build
+```
+
+The Tailwind source file is at `themes/skill-wanderer-theme/login/resources/css/src/input.css` and outputs to `themes/skill-wanderer-theme/login/resources/css/tailwind.css`.
+
+### Custom Tailwind Configuration
+
+The project includes a custom Tailwind config with:
+- Brand colors (`brand-500`: #FF6B35)
+- Custom shadows (`shadow-card`, `shadow-card-hover`)
+- Custom animations (`animate-fade-in`)
+- Custom component classes (`.form-input-custom`, `.btn-primary-custom`, `.alert-*-custom`)
 
 ### Development vs Production
 

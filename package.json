@@ -1,0 +1,12 @@
+{
+  "name": "keycloak-sso-theme",
+  "version": "1.0.0",
+  "description": "Skill-Wanderer Keycloak SSO Theme with Tailwind CSS",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./themes/skill-wanderer-theme/login/resources/css/src/input.css -o ./themes/skill-wanderer-theme/login/resources/css/tailwind.css --watch",
+    "build": "npx tailwindcss -i ./themes/skill-wanderer-theme/login/resources/css/src/input.css -o ./themes/skill-wanderer-theme/login/resources/css/tailwind.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
