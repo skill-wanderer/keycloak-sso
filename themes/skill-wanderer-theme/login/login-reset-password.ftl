@@ -10,7 +10,7 @@
             </div>
             
             <div class="mb-4 ${properties.kcFormGroupClass!}">
-                <label for="username" class="block text-gray-800 font-medium mb-2.5 ${properties.kcLabelClass!}">
+                <label for="username" class="block text-[#e0e0e0] font-medium mb-2.5 ${properties.kcLabelClass!}">
                     <#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>
                 </label>
                 <input type="text" id="username" name="username" class="form-input-custom ${properties.kcInputClass!}" autofocus value="${(auth.attemptedUsername!'')}"
@@ -23,16 +23,16 @@
             </div>
             
             <!-- Email delivery notice -->
-            <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
+            <div class="notice-box mb-4">
                 <div class="flex items-start gap-3">
-                    <span class="text-amber-600 mt-0.5">
+                    <span class="text-[#FFD93D] mt-0.5">
                         <i class="fa-solid fa-circle-info"></i>
                     </span>
-                    <div class="text-sm text-amber-800">
-                        <p class="font-medium mb-1">After submitting:</p>
-                        <ul class="list-disc list-inside space-y-1 text-amber-700">
-                            <li>Please check your <strong>spam/junk folder</strong></li>
-                            <li>Email delivery may take up to <strong>10 minutes</strong></li>
+                    <div class="text-sm text-[rgba(255,255,255,0.7)]">
+                        <p class="font-medium mb-1 text-[#e0e0e0]">After submitting:</p>
+                        <ul class="list-disc list-inside space-y-1 text-[rgba(255,255,255,0.6)]">
+                            <li>Please check your <strong class="text-[#e0e0e0]">spam/junk folder</strong></li>
+                            <li>Email delivery may take up to <strong class="text-[#e0e0e0]">10 minutes</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <input class="btn-primary-custom w-full ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}"/>
                 </div>
                 <div id="kc-form-options" class="text-center">
-                    <a href="${url.loginUrl}" class="text-brand-500 font-medium hover:text-brand-600 hover:underline transition-all duration-300">${msg("backToLogin")}</a>
+                    <a href="${url.loginUrl}" class="text-brand-500 font-medium hover:text-[#FFD93D] hover:underline transition-all duration-300">${msg("backToLogin")}</a>
                 </div>
             </div>
         </form>

@@ -14,7 +14,11 @@
         </#list>
     </#if>
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
-    <link rel="icon" href="${url.resourcesPath}/img/skill-wanderer-favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="${url.resourcesPath}/img/favicon.svg" />
+    <!-- Google Fonts: Lora (serif heading) + Inter (sans body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 Free -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <#if properties.stylesCommon?has_content>
@@ -39,9 +43,9 @@
     </#if>
 </head>
 
-<body class="bg-brand-pattern min-h-screen font-sans leading-relaxed text-[#e0e0e0] ${properties.kcBodyClass!}">
-  <div class="min-h-screen flex items-center justify-center p-1.5 ${properties.kcLoginClass!}">
-    <div id="kc-container" class="flex items-center justify-center p-1.5 ${properties.kcContainerClass!}">
+<body class="bg-cd-pattern min-h-screen font-sans leading-relaxed text-cd-primary ${properties.kcBodyClass!}">
+  <div class="min-h-screen flex items-center justify-center p-4 ${properties.kcLoginClass!}">
+    <div id="kc-container" class="flex items-center justify-center p-2 ${properties.kcContainerClass!}">
       <div id="kc-container-wrapper" class="w-full max-w-[420px] ${properties.kcContainerWrapperClass!}">
 
         <div id="kc-header" class="${properties.kcHeaderClass!}">
@@ -50,19 +54,19 @@
           </div>
         </div>
 
-        <div class="glass-card rounded-2xl shadow-card animate-fade-in overflow-hidden transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5 ${properties.kcFormCardClass!}">
+        <div class="cd-card rounded-2xl shadow-cd-card animate-fade-in overflow-hidden transition-all duration-300 hover:shadow-cd-brand hover:-translate-y-0.5 ${properties.kcFormCardClass!}">
           <div id="kc-content">
             <div id="kc-content-wrapper">
 
               <#-- App-initiated actions should not see warning messages about the need to complete the action -->
               <#-- during login.                                                                               -->
               <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-                  <div class="mx-6 mt-4 <#if message.type = 'error'>alert-error-custom<#elseif message.type = 'success'>alert-success-custom<#elseif message.type = 'warning'>alert-warning-custom<#else>alert-info-custom</#if> ${properties.kcAlertClass!}">
+                  <div class="mx-6 mt-4 <#if message.type = 'error'>alert-error-cd<#elseif message.type = 'success'>alert-success-cd<#elseif message.type = 'warning'>alert-warning-cd<#else>alert-info-cd</#if> ${properties.kcAlertClass!}">
                       <div class="flex items-center gap-2">
-                          <#if message.type = 'success'><span class="text-green-600 ${properties.kcFeedbackSuccessIcon!}"></span></#if>
+                          <#if message.type = 'success'><span class="text-cd-success ${properties.kcFeedbackSuccessIcon!}"></span></#if>
                           <#if message.type = 'warning'><span class="text-yellow-600 ${properties.kcFeedbackWarningIcon!}"></span></#if>
-                          <#if message.type = 'error'><span class="text-red-600 ${properties.kcFeedbackErrorIcon!}"></span></#if>
-                          <#if message.type = 'info'><span class="text-blue-600 ${properties.kcFeedbackInfoIcon!}"></span></#if>
+                          <#if message.type = 'error'><span class="text-cd-failure ${properties.kcFeedbackErrorIcon!}"></span></#if>
+                          <#if message.type = 'info'><span class="text-cd-growth ${properties.kcFeedbackInfoIcon!}"></span></#if>
                           <span class="font-medium ${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
                       </div>
                   </div>
@@ -76,7 +80,7 @@
                         <div class="mb-4 ${properties.kcFormGroupClass!}">
                             <input type="hidden" name="tryAnotherWay" value="on"/>
                             <a href="#" id="try-another-way"
-                               class="text-brand-500 font-medium hover:text-[#FFD93D] hover:underline transition-all duration-300"
+                               class="text-cd-accent font-medium hover:text-cd-brand hover:underline transition-all duration-300"
                                onclick="document.forms['kc-select-try-another-way-form'].submit();return false;">${msg("doTryAnotherWay")}</a>
                         </div>
                     </div>
@@ -84,7 +88,7 @@
               </#if>
 
               <#if displayInfo>
-                  <div id="kc-info" class="border-t border-[rgba(255,107,53,0.1)] px-6 py-5 text-center rounded-b-2xl bg-[rgba(255,255,255,0.03)] ${properties.kcSignUpClass!}">
+                  <div id="kc-info" class="border-t border-cd-border px-6 py-5 text-center rounded-b-2xl bg-cd-surface-alt ${properties.kcSignUpClass!}">
                       <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
                           <#nested "info">
                       </div>

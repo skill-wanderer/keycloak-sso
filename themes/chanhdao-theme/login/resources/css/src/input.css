@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Chanh Dao Design System Tokens */
+@layer base {
+  :root {
+    /* Brand */
+    --cd-brand-primary: #D4AF37;
+    --cd-brand-accent: #B8860B;
+    --cd-brand-gold-light: #E8C547;
+    /* Surface */
+    --cd-surface-bg: #FCF8ED;
+    --cd-surface-bg-alt: #F5EDD6;
+    --cd-surface-card: rgba(212, 175, 55, 0.06);
+    --cd-surface-card-hover: rgba(212, 175, 55, 0.12);
+    /* Text */
+    --cd-text-primary: #3E2F1B;
+    --cd-text-secondary: #6B5B3E;
+    --cd-text-muted: #8B7B5E;
+    --cd-text-light: #A89672;
+    /* Semantic */
+    --cd-success: #4CAF50;
+    --cd-failure: #f44336;
+    --cd-wisdom: #9C27B0;
+    --cd-growth: #2196F3;
+    --cd-premium: #D4AF37;
+    /* Shape */
+    --cd-radius-pill: 50px;
+    --cd-radius-card: 16px;
+    /* Shadow */
+    --cd-shadow-brand: 0 4px 15px rgba(212, 175, 55, 0.2);
+    --cd-shadow-brand-lg: 0 6px 25px rgba(212, 175, 55, 0.35);
+    --cd-shadow-card: 0 2px 12px rgba(62, 47, 27, 0.08);
+    --cd-shadow-dropdown: 0 12px 32px rgba(62, 47, 27, 0.15);
+  }
+
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Custom component classes */
+@layer components {
+  /* Warm background with subtle golden radial glows */
+  .bg-cd-pattern {
+    background: var(--cd-surface-bg);
+    background-image:
+      radial-gradient(ellipse at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(232, 197, 71, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(184, 134, 11, 0.04) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  /* Card surface – warm white with gold border */
+  .cd-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+
+  .cd-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+  }
+
+  /* Custom form input – warm light theme */
+  .form-input-cd {
+    @apply w-full border rounded-lg px-4 py-3
+           transition-all duration-200 text-sm
+           focus:outline-none;
+    background: var(--cd-surface-bg);
+    border-color: rgba(212, 175, 55, 0.25);
+    color: var(--cd-text-primary);
+  }
+
+  .form-input-cd::placeholder {
+    color: var(--cd-text-light);
+  }
+
+  .form-input-cd:focus {
+    border-color: var(--cd-brand-primary);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    background: #FFFFFF;
+  }
+
+  /* Primary button – gold gradient with pill shape */
+  .btn-primary-cd {
+    @apply w-full mt-4 py-3 px-7 font-semibold text-base
+           cursor-pointer relative overflow-hidden
+           transition-all duration-200
+           active:translate-y-0 active:shadow-sm
+           disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none;
+    background: linear-gradient(135deg, var(--cd-brand-primary), var(--cd-brand-accent));
+    color: #FFFFFF;
+    border: none;
+    border-radius: var(--cd-radius-pill);
+    box-shadow: var(--cd-shadow-brand);
+    letter-spacing: 0.3px;
+  }
+
+  .btn-primary-cd:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--cd-shadow-brand-lg);
+    filter: brightness(1.05);
+  }
+
+  .btn-primary-cd:focus {
+    outline: 2px solid var(--cd-brand-gold-light);
+    outline-offset: 2px;
+  }
+
+  /* Secondary/outline button */
+  .btn-secondary-cd {
+    @apply py-3 px-6 font-semibold text-sm
+           cursor-pointer transition-all duration-200;
+    background: transparent;
+    color: var(--cd-brand-accent);
+    border: 1px solid rgba(184, 134, 11, 0.4);
+    border-radius: var(--cd-radius-pill);
+  }
+
+  .btn-secondary-cd:hover {
+    background: var(--cd-brand-accent);
+    color: #FFFFFF;
+    border-color: var(--cd-brand-accent);
+  }
+
+  /* Alert styles – warm-themed */
+  .alert-error-cd {
+    @apply rounded-lg px-4 py-3;
+    background: rgba(244, 67, 54, 0.08);
+    border: 1px solid rgba(244, 67, 54, 0.25);
+    color: #d32f2f;
+  }
+
+  .alert-success-cd {
+    @apply rounded-lg px-4 py-3;
+    background: rgba(76, 175, 80, 0.08);
+    border: 1px solid rgba(76, 175, 80, 0.25);
+    color: #2e7d32;
+  }
+
+  .alert-warning-cd {
+    @apply rounded-lg px-4 py-3;
+    background: rgba(255, 193, 7, 0.08);
+    border: 1px solid rgba(255, 193, 7, 0.25);
+    color: #f57f17;
+  }
+
+  .alert-info-cd {
+    @apply rounded-lg px-4 py-3;
+    background: rgba(33, 150, 243, 0.08);
+    border: 1px solid rgba(33, 150, 243, 0.25);
+    color: #1565c0;
+  }
+
+  /* Info notice box – warm gold tinted */
+  .notice-box-cd {
+    @apply rounded-lg p-4;
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-gradient-cd {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--cd-brand-primary), var(--cd-brand-accent));
+  }
+
+  .accent-cd-brand {
+    accent-color: var(--cd-brand-primary);
+  }
+}

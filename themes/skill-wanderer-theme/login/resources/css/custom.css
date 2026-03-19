@@ -1,51 +1,56 @@
-/* Custom Login Theme Styles - Skill-Wanderer Bright Orange Theme */
+/* Custom Login Theme Styles - Skill-Wanderer Dark-First Design System */
 
 /* Base font size settings */
 html {
     font-size: 16px;
 }
 
-/* Override main background */
+/* Override main background – dark with subtle orange/yellow radial glows */
 .login-pf body {
-    background: #FF6B35;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23FB3'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23f7882b'/%3E%3Cstop offset='1' stop-color='%23ee5522'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='rotate(0 0 0)'%3E%3Cg transform='rotate(0 0 0)'%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(0 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.1' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    background-size: cover;
-    background-position: center;
+    background: #0f0f0f;
+    background-image:
+        radial-gradient(ellipse at 20% 50%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(255, 217, 61, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(255, 107, 53, 0.04) 0%, transparent 50%);
     background-attachment: fixed;
-    color: #333;
+    color: #e0e0e0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
 }
 
-/* Override card background and styling */
+/* Override card – soft-glass surface */
 .login-pf .card-pf {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    border: none;
-    max-width: 380px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 107, 53, 0.2);
+    max-width: 420px;
     margin: 0 auto;
     transition: all 0.3s ease;
     overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .login-pf .card-pf:hover {
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     transform: translateY(-2px);
+    border-color: rgba(255, 107, 53, 0.35);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Header styling */
 .login-pf .card-pf header {
-    background: #f8f9fa;
+    background: transparent;
     border-bottom: none;
     padding: 15px 20px 10px;
     text-align: center;
     border-radius: 16px 16px 0 0;
 }
 
-/* Logo/Brand styling - Skill-Wanderer branding */
+/* Logo/Brand heading – orange-to-yellow gradient text */
 .login-pf .card-pf header h1 {
-    background: linear-gradient(135deg, #FF6B35 0%, #E85D25 100%);
+    background: linear-gradient(135deg, #FF6B35, #FFD93D);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -56,29 +61,10 @@ html {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Add brand illustration area */
-.login-pf .card-pf header::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 80px;
-    background: linear-gradient(135deg, #87CEEB 0%, #98D8E8 50%, #F0E68C 100%);
-    border-radius: 8px;
-    margin-bottom: 10px;
-    position: relative;
-    background-image: 
-        radial-gradient(circle at 20% 80%, #FF6B35 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, #FFD93D 0%, transparent 50%);
-}
-
-/* Add subtitle styling for brand consistency */
+/* Remove pseudo-elements – replaced by logo img in FTL */
+.login-pf .card-pf header::before,
 .login-pf .card-pf header::after {
-    content: "Skill-Wanderer Platform";
-    display: block;
-    color: #666;
-    font-weight: 500;
-    margin-top: 5px;
-    letter-spacing: 0.5px;
+    display: none;
 }
 
 /* Font Awesome icon styling */
@@ -96,7 +82,7 @@ html {
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #6c757d;
+    color: rgba(255, 255, 255, 0.4);
     pointer-events: none;
 }
 
@@ -107,63 +93,62 @@ html {
 /* Form container */
 .login-pf .card-pf form {
     padding: 10px 30px 25px;
-    background: #ffffff;
+    background: transparent;
 }
 
 /* Logo styling */
 .kc-logo-section {
     text-align: center;
     padding: 5px 0;
-
 }
 
 .kc-logo {
-
     height: auto;
     display: block;
     margin: 0 auto;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0 2px 8px rgba(255, 107, 53, 0.2));
 }
 
-/* Input field styling */
+/* Input field styling – dark glass inputs */
 .login-pf .form-control {
-    border: 2px solid #e9ecef;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 8px;
     padding: 14px 18px;
     transition: all 0.3s ease;
-    background: #ffffff;
-    color: #333;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e0e0e0;
     font-family: inherit;
 }
 
 .login-pf .form-control:focus {
     border-color: #FF6B35;
-    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
     outline: none;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.07);
 }
 
 .login-pf .form-control::placeholder {
-    color: #6c757d;
+    color: rgba(255, 255, 255, 0.4);
     font-weight: 400;
 }
 
-/* Button styling - matching bright theme */
+/* Button styling – orange gradient pill buttons */
 .login-pf .btn-primary,
 .login-pf input[type="submit"],
 .login-pf input[name="login"] {
-    background: #CED4DA;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    padding: 14px 28px;
-    font-weight: 500;
+    background: linear-gradient(135deg, #FF6B35, #E85D25);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
     text-transform: none;
     letter-spacing: 0.3px;
     transition: all 0.3s ease;
     width: 100%;
     margin-top: 20px;
-    color: #333333;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -178,17 +163,16 @@ html {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s ease;
 }
 
 .login-pf .btn-primary:hover,
 .login-pf input[type="submit"]:hover,
 .login-pf input[name="login"]:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    background: #ADB5BD;
-    border-color: #ced4da;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    filter: brightness(1.1);
 }
 
 .login-pf .btn-primary:hover::before,
@@ -201,10 +185,10 @@ html {
 .login-pf input[type="submit"]:active,
 .login-pf input[name="login"]:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
-/* Hyperlinks - Forgot Password and Registration */
+/* Hyperlinks – brand orange on dark */
 .login-pf a,
 .login-pf a:link,
 .login-pf a:visited {
@@ -216,12 +200,12 @@ html {
 
 .login-pf a:hover,
 .login-pf a:focus {
-    color: #E85D25;
+    color: #FFD93D;
     text-decoration: underline;
 }
 
 .login-pf a:active {
-    color: #D04A1A;
+    color: #E85D25;
 }
 
 /* Specific styling for forgot password link */
@@ -231,7 +215,7 @@ html {
 }
 
 #kc-form-options a:hover {
-    color: #E85D25;
+    color: #FFD93D;
 }
 
 /* Registration link styling */
@@ -241,7 +225,7 @@ html {
 }
 
 #kc-registration a:hover {
-    color: #E85D25;
+    color: #FFD93D;
 }
 
 /* Form group spacing */
@@ -286,9 +270,9 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
     margin-bottom: 10px;
 }
 
-/* Label styling */
+/* Label styling – light text on dark */
 .login-pf label {
-    color: #333;
+    color: #e0e0e0;
     font-weight: 500;
     margin-bottom: 10px;
     font-family: inherit;
@@ -296,26 +280,26 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
 
 /* Error message styling */
 .login-pf .alert-error {
-    background: rgba(220, 53, 69, 0.1);
-    border: 1px solid rgba(220, 53, 69, 0.3);
-    color: #dc3545;
+    background: rgba(244, 67, 54, 0.1);
+    border: 1px solid rgba(244, 67, 54, 0.3);
+    color: #ef5350;
     border-radius: 8px;
     padding: 12px 16px;
 }
 
 /* Success message styling */
 .login-pf .alert-success {
-    background: rgba(40, 167, 69, 0.1);
-    border: 1px solid rgba(40, 167, 69, 0.3);
-    color: #28a745;
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    color: #66bb6a;
     border-radius: 8px;
     padding: 12px 16px;
 }
 
-/* Footer links */
+/* Footer links – darker glass surface */
 .login-pf .card-pf footer {
-    background: #f8f9fa;
-    border-top: 1px solid #e9ecef;
+    background: rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 107, 53, 0.1);
     padding: 25px 40px;
     text-align: center;
     border-radius: 0 0 16px 16px;
@@ -329,7 +313,7 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
 }
 
 .login-pf .card-pf footer a:hover {
-    color: #E85D25;
+    color: #FFD93D;
     text-decoration: underline;
 }
 
@@ -340,7 +324,7 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
 }
 
 .login-pf .checkbox label {
-    color: #6c757d;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* Responsive adjustments */
@@ -348,7 +332,7 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
     .login-pf .card-pf {
         margin: 15px;
         max-width: none;
-        border-radius: 8px;
+        border-radius: 12px;
     }
     
     .login-pf .card-pf form {
@@ -394,15 +378,15 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
 
 /* Input field enhancements */
 .login-pf .form-control::-webkit-input-placeholder {
-    color: #6c757d;
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .login-pf .form-control::-moz-placeholder {
-    color: #6c757d;
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .login-pf .form-control:-ms-input-placeholder {
-    color: #6c757d;
+    color: rgba(255, 255, 255, 0.4);
 }
 
 /* Loading state for button */
@@ -418,7 +402,7 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
 .login-pf .btn-primary:focus,
 .login-pf input[type="submit"]:focus,
 .login-pf input[name="login"]:focus {
-    outline: 2px solid #FF6B35;
+    outline: 2px solid #FFD93D;
     outline-offset: 2px;
 }
 
@@ -479,16 +463,15 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
     bottom: 0%;
 }
 
-.login-pf-page{
+.login-pf-page {
     padding-top: 0;
-
     display: flex;
     align-items: flex-start;
     justify-content: center;
     padding: 5px 0;
 }
 
-.login-pf-page .login-pf-page-header{
+.login-pf-page .login-pf-page-header {
     margin-bottom: 0;
     padding: 5px 0;
 }
@@ -498,12 +481,11 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
     display: flex;
     align-items: flex-start;
     justify-content: center;
-
     padding: 5px;
     padding-top: 10px;
 }
 
 .login-pf #kc-container-wrapper {
     width: 100%;
-    max-width: 380px;
+    max-width: 420px;
 }
