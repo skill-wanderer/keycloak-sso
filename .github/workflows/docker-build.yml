@@ -7,6 +7,7 @@ on:
       - develop
     paths:
       - 'themes/skill-wanderer-theme/**'
+      - 'themes/chanhdao-theme/**'
       - 'Dockerfile'
       - '.github/workflows/docker-build.yml'
       - 'package.json'
@@ -16,6 +17,7 @@ on:
       - main
     paths:
       - 'themes/skill-wanderer-theme/**'
+      - 'themes/chanhdao-theme/**'
       - 'Dockerfile'
       - 'package.json'
       - 'tailwind.config.js'

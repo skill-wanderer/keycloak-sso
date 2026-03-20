@@ -37,12 +37,14 @@ LABEL org.opencontainers.image.licenses="MIT"
 # Copy the optimized Keycloak build from builder stage
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
-# Copy the custom Skill-Wanderer theme
+# Copy custom themes
 COPY themes/skill-wanderer-theme /opt/keycloak/themes/skill-wanderer-theme
+COPY themes/chanhdao-theme /opt/keycloak/themes/chanhdao-theme
 
 # Create keycloak user and set permissions
 USER 0
 RUN chown -R 1000:1000 /opt/keycloak/themes/skill-wanderer-theme
+RUN chown -R 1000:1000 /opt/keycloak/themes/chanhdao-theme
 USER 1000
 
 # Set working directory
