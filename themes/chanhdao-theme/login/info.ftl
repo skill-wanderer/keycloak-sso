@@ -23,10 +23,10 @@
                     <i class="fa-solid fa-circle-info"></i>
                 </span>
                 <div class="text-sm text-cd-secondary">
-                    <p class="font-medium mb-1 text-cd-primary">Can't find the email?</p>
+                    <p class="font-medium mb-1 text-cd-primary">Không tìm thấy email?</p>
                     <ul class="list-disc list-inside space-y-1 text-cd-muted">
-                        <li>Please check your <strong class="text-cd-primary">spam/junk folder</strong></li>
-                        <li>Email delivery may take up to <strong class="text-cd-primary">10 minutes</strong></li>
+                        <li>Vui lòng kiểm tra thư mục <strong class="text-cd-primary">spam/rác</strong></li>
+                        <li>Email có thể đến trong vòng <strong class="text-cd-primary">10 phút</strong></li>
                     </ul>
                 </div>
             </div>

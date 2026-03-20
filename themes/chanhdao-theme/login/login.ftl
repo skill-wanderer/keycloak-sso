@@ -11,7 +11,7 @@
                 <div class="text-center py-2 mb-5">
                     <img src="${url.resourcesPath}/img/dharma-wheel.svg" alt="Dharma Wheel" class="w-16 h-16 mx-auto mb-2 drop-shadow-sm">
                     <span class="block font-serif text-2xl font-bold text-cd-brand tracking-wide">Chanh Dao</span>
-                    <p class="text-cd-muted text-sm mt-1 font-sans">Con duong tinh thuc</p>
+                    <p class="text-cd-muted text-sm mt-1 font-sans">Con đường tỉnh thức</p>
                 </div>
 
                 <div class="mb-4 ${properties.kcFormGroupClass!}">

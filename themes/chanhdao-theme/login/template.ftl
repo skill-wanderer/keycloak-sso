@@ -14,7 +14,7 @@
         </#list>
     </#if>
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
-    <link rel="icon" type="image/svg+xml" href="${url.resourcesPath}/img/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="${url.resourcesPath}/img/dharma-wheel.svg" />
     <!-- Google Fonts: Lora (serif heading) + Inter (sans body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
