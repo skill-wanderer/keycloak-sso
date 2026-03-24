@@ -3,8 +3,8 @@
     <#if section = "header">
         ${msg("doLogIn")}
     <#elseif section = "form">
-    <div id="kc-form" <#if realm.password && social.providers??>class="${properties.kcContentWrapperClass!}"</#if>>
-      <div id="kc-form-wrapper" <#if realm.password && social.providers??>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
+    <div id="kc-form">
+      <div id="kc-form-wrapper">
         <#if realm.password>
             <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post" class="px-7 py-6">
                 <!-- Logo Section -->
@@ -70,20 +70,20 @@
         </#if>
         </div>
         <#if realm.password && social.providers??>
-            <div id="kc-social-providers" class="px-7 py-4 border-t border-[rgba(255,107,53,0.1)] ${properties.kcFormSocialAccountSectionClass!}">
+            <div id="kc-social-providers" class="px-7 py-4">
                 <hr class="border-[rgba(255,255,255,0.1)] mb-4"/>
                 <h4 class="text-center text-[rgba(255,255,255,0.6)] font-medium mb-4">${msg("identity-provider-login-label")}</h4>
 
-                <ul class="flex flex-col gap-2 ${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountListGridClass!}</#if>">
+                <ul class="flex flex-col gap-2">
                     <#list social.providers as p>
-                        <a id="social-${p.alias}" class="block w-full py-3 px-4 text-center rounded-[50px] border border-[rgba(255,107,53,0.3)] bg-[rgba(255,255,255,0.05)] text-[#e0e0e0] font-medium hover:bg-[rgba(255,107,53,0.1)] hover:border-brand-500 transition-all duration-300 ${properties.kcFormSocialAccountListButtonClass!} <#if social.providers?size gt 3>${properties.kcFormSocialAccountGridItem!}</#if>"
-                                type="button" href="${p.loginUrl}">
-                            <#if p.iconClasses?has_content>
-                                <span class="${properties.kcFormSocialAccountNameClass!} kc-social-icon-text">${p.displayName!}</span>
-                            <#else>
-                                <span class="${properties.kcFormSocialAccountNameClass!}">${p.displayName!}</span>
-                            </#if>
-                        </a>
+                        <li>
+                            <a id="social-${p.alias}" class="social-btn-custom" href="${p.loginUrl}">
+                                <#if p.iconClasses?has_content>
+                                    <i class="${p.iconClasses!}" aria-hidden="true"></i>
+                                </#if>
+                                <span>${p.displayName!}</span>
+                            </a>
+                        </li>
                     </#list>
                 </ul>
             </div>

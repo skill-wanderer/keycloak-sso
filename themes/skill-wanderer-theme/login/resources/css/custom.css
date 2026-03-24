@@ -489,3 +489,216 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
     width: 100%;
     max-width: 420px;
 }
+
+/* =====================================================
+   GLOBAL TEXT COLOR FIX – force light text on dark theme
+   ===================================================== */
+
+/* All labels must be light */
+.login-pf label,
+.login-pf .control-label,
+.login-pf .form-group label,
+.login-pf .pf-c-form__label-text {
+    color: #e0e0e0 !important;
+    font-weight: 500;
+}
+
+/* Required field asterisks */
+.login-pf .required {
+    color: #FF6B35 !important;
+}
+
+/* General text in card */
+.login-pf .card-pf,
+.login-pf .card-pf p,
+.login-pf .card-pf span,
+.login-pf .card-pf div {
+    color: #e0e0e0;
+}
+
+/* All form inputs on dark background */
+.login-pf .form-control,
+.login-pf input[type="text"],
+.login-pf input[type="password"],
+.login-pf input[type="email"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #e0e0e0 !important;
+    border-radius: 8px;
+    padding: 14px 18px;
+    transition: all 0.3s ease;
+}
+
+.login-pf .form-control:focus,
+.login-pf input[type="text"]:focus,
+.login-pf input[type="password"]:focus,
+.login-pf input[type="email"]:focus {
+    border-color: #FF6B35 !important;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15) !important;
+    outline: none;
+    background: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Placeholder text */
+.login-pf input::-webkit-input-placeholder { color: rgba(255, 255, 255, 0.4) !important; }
+.login-pf input::-moz-placeholder { color: rgba(255, 255, 255, 0.4) !important; }
+.login-pf input:-ms-input-placeholder { color: rgba(255, 255, 255, 0.4) !important; }
+
+/* All links inside card */
+.login-pf .card-pf a,
+.login-pf .card-pf a:link,
+.login-pf .card-pf a:visited {
+    color: #FF6B35 !important;
+    font-weight: 500;
+}
+
+.login-pf .card-pf a:hover,
+.login-pf .card-pf a:focus {
+    color: #FFD93D !important;
+}
+
+/* Back to Login link */
+#kc-form-options a,
+.login-pf .card-pf .kc-form-options a {
+    color: #FF6B35 !important;
+    font-weight: 500;
+}
+
+/* Submit / Register button override */
+.login-pf .btn-primary,
+.login-pf input[type="submit"] {
+    background: linear-gradient(135deg, #FF6B35, #E85D25) !important;
+    border: none !important;
+    border-radius: 50px !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    padding: 15px 30px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-pf .btn-primary:hover,
+.login-pf input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    filter: brightness(1.1);
+}
+
+/* =====================================================
+   SOCIAL PROVIDER BUTTONS FIX
+   ===================================================== */
+
+/* Override ALL default Keycloak/zocial social button styles */
+#kc-social-providers {
+    border-top: 1px solid rgba(255, 107, 53, 0.1);
+    padding: 16px 28px;
+}
+
+#kc-social-providers h4,
+#kc-social-providers .kc-social-section-text {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 500;
+}
+
+#kc-social-providers ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#kc-social-providers li {
+    list-style: none !important;
+    margin-bottom: 8px;
+}
+
+/* Nuclear override for social buttons – override zocial, kc-social-*, etc. */
+#kc-social-providers a,
+#kc-social-providers a[id^="social-"],
+#kc-social-providers a.zocial,
+.login-pf #kc-social-providers a,
+.login-pf .kc-social-link,
+a.social-btn-custom,
+.social-btn-custom {
+    display: block !important;
+    width: 100% !important;
+    padding: 12px 16px !important;
+    text-align: center !important;
+    border-radius: 50px !important;
+    border: 1px solid rgba(255, 107, 53, 0.3) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    background-image: none !important;
+    color: #e0e0e0 !important;
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+    font-family: inherit !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    line-height: 1.5 !important;
+    text-shadow: none !important;
+    text-indent: 0 !important;
+    box-shadow: none !important;
+}
+
+#kc-social-providers a:hover,
+#kc-social-providers a[id^="social-"]:hover,
+#kc-social-providers a.zocial:hover,
+.social-btn-custom:hover {
+    background: rgba(255, 107, 53, 0.1) !important;
+    border-color: #FF6B35 !important;
+    color: #e0e0e0 !important;
+    text-decoration: none !important;
+}
+
+/* Hide zocial font pseudo-element icons */
+#kc-social-providers a::before,
+#kc-social-providers a.zocial::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* =====================================================
+   REGISTRATION PAGE SPECIFIC FIXES
+   ===================================================== */
+
+/* Registration form spacing */
+#kc-register-form .form-group {
+    margin-bottom: 12px;
+}
+
+/* Password visibility toggle */
+.login-pf .pf-c-button.pf-m-control,
+.login-pf .kc-form-password-visibility-toggle {
+    background: transparent !important;
+    border: none !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.login-pf .pf-c-button.pf-m-control:hover,
+.login-pf .kc-form-password-visibility-toggle:hover {
+    color: #FF6B35 !important;
+}
+
+/* Info/registration footer section */
+#kc-info,
+.login-pf #kc-info {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Checkbox labels */
+.login-pf .checkbox label,
+.login-pf input[type="checkbox"] + label {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Fix any select/dropdown if present */
+.login-pf select.form-control {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #e0e0e0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
