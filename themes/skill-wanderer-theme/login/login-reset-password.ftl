@@ -9,14 +9,14 @@
                 <img src="${url.resourcesPath}/img/cropped-skill-wanderer-logo-768x256.webp" alt="Skill Wanderer Logo" class="h-auto block mx-auto drop-shadow-sm max-w-full">
             </div>
             
-            <div class="mb-4 ${properties.kcFormGroupClass!}">
-                <label for="username" class="block text-[#e0e0e0] font-medium mb-2.5 ${properties.kcLabelClass!}">
+            <div class="mb-4">
+                <label for="username" class="block text-[#e0e0e0] font-medium mb-2.5">
                     <#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>
                 </label>
-                <input type="text" id="username" name="username" class="form-input-custom ${properties.kcInputClass!}" autofocus value="${(auth.attemptedUsername!'')}"
+                <input type="text" id="username" name="username" class="form-input-custom" autofocus value="${(auth.attemptedUsername!'')}"
                        aria-invalid="<#if messagesPerField.existsError('username')>true</#if>"/>
                 <#if messagesPerField.existsError('username')>
-                    <span id="input-error-username" class="text-red-600 text-sm mt-1 block ${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                    <span id="input-error-username" class="text-red-600 text-sm mt-1 block" aria-live="polite">
                         ${kcSanitize(messagesPerField.get('username'))?no_esc}
                     </span>
                 </#if>
@@ -38,9 +38,9 @@
                 </div>
             </div>
             
-            <div class="flex flex-col gap-3 ${properties.kcFormGroupClass!}">
+            <div class="flex flex-col gap-3">
                 <div id="kc-form-buttons">
-                    <input class="btn-primary-custom w-full ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}"/>
+                    <input class="btn-primary-custom w-full" type="submit" value="${msg("doSubmit")}"/>
                 </div>
                 <div id="kc-form-options" class="text-center">
                     <a href="${url.loginUrl}" class="text-brand-500 font-medium hover:text-[#FFD93D] hover:underline transition-all duration-300">${msg("backToLogin")}</a>

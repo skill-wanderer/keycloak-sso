@@ -12,20 +12,20 @@
                     <img src="${url.resourcesPath}/img/cropped-skill-wanderer-logo-768x256.webp" alt="Skill Wanderer Logo" class="h-auto block mx-auto drop-shadow-sm max-w-full">
                 </div>
                 
-                <div class="mb-4 ${properties.kcFormGroupClass!}">
-                    <label for="username" class="block text-[#e0e0e0] font-medium mb-2.5 ${properties.kcLabelClass!}">
+                <div class="mb-4">
+                    <label for="username" class="block text-[#e0e0e0] font-medium mb-2.5">
                         <#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if>
                     </label>
 
                     <#if usernameEditDisabled??>
-                        <input tabindex="1" id="username" class="form-input-custom ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
+                        <input tabindex="1" id="username" class="form-input-custom" name="username" value="${(login.username!'')}" type="text" disabled />
                     <#else>
-                        <input tabindex="1" id="username" class="form-input-custom ${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" autofocus autocomplete="off"
+                        <input tabindex="1" id="username" class="form-input-custom" name="username" value="${(login.username!'')}" type="text" autofocus autocomplete="off"
                                aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                         />
 
                         <#if messagesPerField.existsError('username','password')>
-                            <span id="input-error-username-password" class="text-red-600 text-sm mt-1 block ${properties.kcInputErrorMessageClass!}" aria-live="polite">
+                            <span id="input-error-username-password" class="text-red-600 text-sm mt-1 block" aria-live="polite">
                                 ${kcSanitize(messagesPerField.getFirstError('username','password'))?no_esc}
                             </span>
                         </#if>
@@ -33,15 +33,15 @@
                     </#if>
                 </div>
 
-                <div class="mb-4 ${properties.kcFormGroupClass!}">
-                    <label for="password" class="block text-[#e0e0e0] font-medium mb-2.5 ${properties.kcLabelClass!}">${msg("password")}</label>
+                <div class="mb-4">
+                    <label for="password" class="block text-[#e0e0e0] font-medium mb-2.5">${msg("password")}</label>
 
-                    <input tabindex="2" id="password" class="form-input-custom ${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
+                    <input tabindex="2" id="password" class="form-input-custom" name="password" type="password" autocomplete="off"
                            aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>"
                     />
                 </div>
 
-                <div class="mb-4 flex flex-wrap items-center justify-between gap-2 ${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
+                <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
                     <div id="kc-form-options">
                         <#if realm.rememberMe && !usernameEditDisabled??>
                             <div class="flex items-center">
@@ -55,14 +55,14 @@
                             </div>
                         </#if>
                     </div>
-                    <div class="${properties.kcFormOptionsWrapperClass!}">
+                    <div>
                         <#if realm.resetPasswordAllowed>
                             <span><a tabindex="5" href="${url.loginResetCredentialsUrl}" class="text-brand-500 font-medium hover:text-[#FFD93D] hover:underline transition-all duration-300">${msg("doForgotPassword")}</a></span>
                         </#if>
                     </div>
                 </div>
 
-                <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
+                <div id="kc-form-buttons">
                     <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
                     <input tabindex="4" class="btn-primary-custom" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                 </div>

@@ -34,15 +34,15 @@
             </div>
             
             <#if isAppInitiatedAction??>
-                <form id="kc-verify-email-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
-                    <div class="${properties.kcFormGroupClass!}">
+                <form id="kc-verify-email-form" action="${url.loginAction}" method="post">
+                    <div>
                         <div id="kc-form-buttons" class="flex gap-2">
                             <#if verifyEmail??>
-                                <input class="btn-primary-custom ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("emailVerifyResend")}" />
+                                <input class="btn-primary-custom" type="submit" value="${msg("emailVerifyResend")}" />
                             <#else>
-                                <input class="btn-primary-custom ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("emailVerifySend")}" />
+                                <input class="btn-primary-custom" type="submit" value="${msg("emailVerifySend")}" />
                             </#if>
-                            <button class="btn-secondary-custom ${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" type="submit" name="cancel-aia" value="true" formnovalidate>${msg("doCancel")}</button>
+                            <button class="btn-secondary-custom" type="submit" name="cancel-aia" value="true" formnovalidate>${msg("doCancel")}</button>
                         </div>
                     </div>
                 </form>
