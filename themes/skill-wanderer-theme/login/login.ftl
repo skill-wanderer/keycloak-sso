@@ -78,6 +78,21 @@
                     <#list social.providers as p>
                         <li>
                             <a id="social-${p.alias}" class="social-btn-custom" href="${p.loginUrl}">
+                                <#if p.alias == "google">
+                                    <i class="fa-brands fa-google"></i>
+                                <#elseif p.alias == "github">
+                                    <i class="fa-brands fa-github"></i>
+                                <#elseif p.alias == "facebook">
+                                    <i class="fa-brands fa-facebook"></i>
+                                <#elseif p.alias == "apple">
+                                    <i class="fa-brands fa-apple"></i>
+                                <#elseif p.alias == "microsoft">
+                                    <i class="fa-brands fa-microsoft"></i>
+                                <#elseif p.alias == "discord">
+                                    <i class="fa-brands fa-discord"></i>
+                                <#else>
+                                    <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                                </#if>
                                 <span>${p.displayName!}</span>
                             </a>
                         </li>

@@ -34,26 +34,26 @@
     background-attachment: fixed;
   }
 
-  /* Glass card surface */
+  /* Glass card surface – solid dark background for reliable rendering */
   .glass-card {
-    background: var(--card-bg);
+    background: #1a1a1a;
     border: 1px solid rgba(255, 107, 53, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
 
   .glass-card:hover {
-    background: var(--card-hover);
+    background: #1e1e1e;
     border-color: rgba(255, 107, 53, 0.35);
   }
 
-  /* Custom form input – dark theme */
+  /* Custom form input – solid dark background */
   .form-input-custom {
     @apply w-full border rounded-lg px-4 py-3.5 
            transition-all duration-300 text-sm
            focus:outline-none;
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.12);
+    background: #222222;
+    border-color: rgba(255, 255, 255, 0.15);
     color: var(--light-text);
   }
 
@@ -143,23 +143,26 @@
     border: 1px solid rgba(255, 217, 61, 0.2);
   }
 
-  /* Social provider button – dark themed pill */
+  /* Social provider button – solid dark pill with orange accent */
   .social-btn-custom {
     @apply block w-full py-3 px-4 text-center font-medium
            transition-all duration-300 cursor-pointer;
     border-radius: 50px;
-    border: 1px solid rgba(255, 107, 53, 0.3);
-    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #FF6B35;
+    background: #262626;
     color: #e0e0e0;
     text-decoration: none;
     font-size: 0.95rem;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.15);
   }
 
   .social-btn-custom:hover {
-    background: rgba(255, 107, 53, 0.1);
-    border-color: var(--primary-orange);
-    color: #e0e0e0;
+    background: #FF6B35;
+    border-color: #FF6B35;
+    color: #ffffff;
     text-decoration: none;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    transform: translateY(-1px);
   }
 
   .social-btn-custom i {

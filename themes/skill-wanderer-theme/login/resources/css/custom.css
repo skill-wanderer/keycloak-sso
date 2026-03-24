@@ -617,8 +617,6 @@ form[action*="registration"] ~ * .login-pf .card-pf form,
 #kc-social-providers a,
 #kc-social-providers a[id^="social-"],
 #kc-social-providers a.zocial,
-.login-pf #kc-social-providers a,
-.login-pf .kc-social-link,
 a.social-btn-custom,
 .social-btn-custom {
     display: block !important;
@@ -626,8 +624,8 @@ a.social-btn-custom,
     padding: 12px 16px !important;
     text-align: center !important;
     border-radius: 50px !important;
-    border: 1px solid rgba(255, 107, 53, 0.3) !important;
-    background: rgba(255, 255, 255, 0.05) !important;
+    border: 2px solid #FF6B35 !important;
+    background: #262626 !important;
     background-image: none !important;
     color: #e0e0e0 !important;
     font-weight: 500 !important;
@@ -642,17 +640,19 @@ a.social-btn-custom,
     line-height: 1.5 !important;
     text-shadow: none !important;
     text-indent: 0 !important;
-    box-shadow: none !important;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.15) !important;
 }
 
 #kc-social-providers a:hover,
 #kc-social-providers a[id^="social-"]:hover,
 #kc-social-providers a.zocial:hover,
 .social-btn-custom:hover {
-    background: rgba(255, 107, 53, 0.1) !important;
+    background: #FF6B35 !important;
     border-color: #FF6B35 !important;
-    color: #e0e0e0 !important;
+    color: #ffffff !important;
     text-decoration: none !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3) !important;
+    transform: translateY(-1px);
 }
 
 /* Hide zocial font pseudo-element icons */

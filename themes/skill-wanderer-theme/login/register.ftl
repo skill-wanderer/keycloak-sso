@@ -86,7 +86,7 @@
             </#if>
 
             <div class="mb-4">
-                <span class="text-[rgba(255,255,255,0.6)]"><a href="${url.loginUrl}" class="text-brand-500 font-medium hover:text-[#FFD93D] hover:underline transition-all duration-300">&laquo; ${msg("backToLogin")}</a></span>
+                <span class="text-[rgba(255,255,255,0.6)]"><a href="${url.loginUrl}" class="text-brand-500 font-medium hover:text-[#FFD93D] hover:underline transition-all duration-300"><i class="fa-solid fa-arrow-left text-xs mr-1"></i> ${msg("backToLogin")}</a></span>
             </div>
 
             <div id="kc-form-buttons">
