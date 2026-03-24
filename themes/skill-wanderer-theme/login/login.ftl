@@ -64,7 +64,7 @@
 
                 <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
                     <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                    <input tabindex="4" class="btn-primary-custom ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                    <input tabindex="4" class="btn-primary-custom" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                 </div>
             </form>
         </#if>
@@ -78,9 +78,6 @@
                     <#list social.providers as p>
                         <li>
                             <a id="social-${p.alias}" class="social-btn-custom" href="${p.loginUrl}">
-                                <#if p.iconClasses?has_content>
-                                    <i class="${p.iconClasses!}" aria-hidden="true"></i>
-                                </#if>
                                 <span>${p.displayName!}</span>
                             </a>
                         </li>

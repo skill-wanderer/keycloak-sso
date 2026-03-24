@@ -90,7 +90,7 @@
             </div>
 
             <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
-                <input class="btn-primary-custom ${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegister")}"/>
+                <input class="btn-primary-custom" type="submit" value="${msg("doRegister")}"/>
             </div>
         </form>
     </#if>
