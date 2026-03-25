@@ -145,7 +145,7 @@
 
   /* Social provider button – solid dark pill with orange accent */
   .social-btn-custom {
-    @apply block w-full py-3 px-4 text-center font-medium
+    @apply flex items-center justify-center gap-2 w-full py-3 px-4 text-center font-medium
            transition-all duration-300 cursor-pointer;
     border-radius: 50px;
     border: 2px solid #FF6B35;
@@ -166,7 +166,7 @@
   }
 
   .social-btn-custom i {
-    margin-right: 8px;
+    margin-right: 0;
   }
 }
 
