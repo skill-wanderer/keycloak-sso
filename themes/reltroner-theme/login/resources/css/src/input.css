@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --reltroner-primary: #2563EB;
+    --reltroner-secondary: #1E40AF;
+    --reltroner-accent: #06B6D4;
+
+    --reltroner-bg: #0F172A;
+    --reltroner-surface: #111827;
+
+    --reltroner-border: #334155;
+
+    --reltroner-text: #F8FAFC;
+    --reltroner-text-secondary: #CBD5E1;
+
+    --reltroner-success: #10B981;
+    --reltroner-warning: #F59E0B;
+    --reltroner-error: #EF4444;
+  }
+
+  html {
+    font-size: 16px;
+  }
+}
+
+@layer components {
+  .auth-card {
+    background: var(--reltroner-surface);
+    border-color: var(--reltroner-border);
+    color: var(--reltroner-text);
+  }
+
+  .form-input-custom {
+    background: var(--reltroner-bg);
+    border-color: var(--reltroner-border);
+    color: var(--reltroner-text);
+  }
+
+  .btn-primary-custom {
+    background: var(--reltroner-primary);
+    color: var(--reltroner-text);
+  }
+}
