@@ -15,7 +15,7 @@ ENV KC_DB=postgres
 RUN /opt/keycloak/bin/kc.sh build
 
 # Production stage
-FROM quay.io/keycloak/keycloak:26.3.1
+FROM quay.io/keycloak/keycloak:26.7.0
 
 # Build arguments for metadata
 ARG BUILDTIME
