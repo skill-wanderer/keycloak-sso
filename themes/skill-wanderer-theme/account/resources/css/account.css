@@ -1,0 +1,842 @@
+/*
+ * Skill-Wanderer Account Console
+ *
+ * Keycloak 26 renders the account console with React and PatternFly 5. This
+ * stylesheet is loaded after the upstream application bundle, so the brand
+ * tokens and component overrides below can restyle the console without
+ * copying or forking Keycloak's application code.
+ */
+
+:root,
+.pf-v5-theme-dark {
+  color-scheme: dark;
+
+  /* Skill-Wanderer design tokens */
+  --sw-primary: #ff6b35;
+  --sw-primary-deep: #e85d25;
+  --sw-accent: #ffd93d;
+  --sw-bg: #1a1a1a;
+  --sw-bg-deep: #0f0f0f;
+  --sw-surface: rgba(255, 255, 255, 0.05);
+  --sw-surface-solid: #1a1a1a;
+  --sw-surface-raised: #222222;
+  --sw-surface-hover: rgba(255, 255, 255, 0.08);
+  --sw-border: rgba(255, 107, 53, 0.2);
+  --sw-border-strong: rgba(255, 107, 53, 0.42);
+  --sw-text: #e0e0e0;
+  --sw-text-strong: #ffffff;
+  --sw-text-muted: rgba(255, 255, 255, 0.64);
+  --sw-success: #4caf50;
+  --sw-danger: #f44336;
+  --sw-info: #42a5f5;
+  --sw-card-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  --sw-card-shadow-hover: 0 25px 50px rgba(0, 0, 0, 0.5);
+  --sw-focus-ring: 0 0 0 3px rgba(255, 107, 53, 0.22);
+  --sw-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  /* PatternFly global tokens used throughout the account console */
+  --pf-v5-global--FontFamily--text: var(--sw-font-family);
+  --pf-v5-global--FontFamily--heading: var(--sw-font-family);
+  --pf-v5-global--Color--100: var(--sw-text);
+  --pf-v5-global--Color--200: var(--sw-text-muted);
+  --pf-v5-global--Color--300: rgba(255, 255, 255, 0.52);
+  --pf-v5-global--Color--dark-100: var(--sw-text);
+  --pf-v5-global--Color--dark-200: var(--sw-text-muted);
+  --pf-v5-global--BackgroundColor--100: var(--sw-bg);
+  --pf-v5-global--BackgroundColor--150: #171717;
+  --pf-v5-global--BackgroundColor--200: var(--sw-bg-deep);
+  --pf-v5-global--BackgroundColor--300: var(--sw-surface-raised);
+  --pf-v5-global--BackgroundColor--400: #2a2a2a;
+  --pf-v5-global--BackgroundColor--dark-100: var(--sw-bg-deep);
+  --pf-v5-global--BackgroundColor--dark-200: #151515;
+  --pf-v5-global--BackgroundColor--dark-300: var(--sw-bg);
+  --pf-v5-global--BackgroundColor--dark-400: var(--sw-surface-raised);
+  --pf-v5-global--BackgroundColor--light-100: var(--sw-bg);
+  --pf-v5-global--BackgroundColor--light-200: #171717;
+  --pf-v5-global--BackgroundColor--light-300: var(--sw-surface-raised);
+  --pf-v5-global--BorderColor--100: rgba(255, 255, 255, 0.14);
+  --pf-v5-global--BorderColor--200: rgba(255, 255, 255, 0.1);
+  --pf-v5-global--BorderColor--300: var(--sw-border);
+  --pf-v5-global--BorderColor--400: var(--sw-border-strong);
+  --pf-v5-global--primary-color--100: var(--sw-primary);
+  --pf-v5-global--primary-color--200: var(--sw-primary-deep);
+  --pf-v5-global--primary-color--light-100: var(--sw-accent);
+  --pf-v5-global--primary-color--dark-100: var(--sw-primary);
+  --pf-v5-global--primary-color--dark-200: var(--sw-accent);
+  --pf-v5-global--active-color--100: var(--sw-primary);
+  --pf-v5-global--active-color--200: var(--sw-primary-deep);
+  --pf-v5-global--active-color--300: var(--sw-accent);
+  --pf-v5-global--link--Color: var(--sw-primary);
+  --pf-v5-global--link--Color--hover: var(--sw-accent);
+  --pf-v5-global--link--Color--visited: #ff946e;
+  --pf-v5-global--link--Color--dark: var(--sw-primary);
+  --pf-v5-global--link--Color--dark--hover: var(--sw-accent);
+  --pf-v5-global--BorderRadius--sm: 8px;
+  --pf-v5-global--BorderRadius--lg: 16px;
+  --pf-v5-global--BoxShadow--sm: 0 4px 12px rgba(0, 0, 0, 0.22);
+  --pf-v5-global--BoxShadow--md: var(--sw-card-shadow);
+  --pf-v5-global--BoxShadow--lg: var(--sw-card-shadow-hover);
+}
+
+* {
+  scrollbar-color: rgba(255, 107, 53, 0.62) #151515;
+}
+
+*::selection {
+  color: #ffffff;
+  background: rgba(255, 107, 53, 0.72);
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body[data-page-id="account"] {
+  margin: 0;
+  color: var(--sw-text);
+  background-color: var(--sw-bg-deep);
+  background-image:
+    radial-gradient(
+      ellipse at 20% 50%,
+      rgba(255, 107, 53, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(255, 217, 61, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(255, 107, 53, 0.04) 0%,
+      transparent 50%
+    );
+  background-attachment: fixed;
+  font-family: var(--sw-font-family);
+  line-height: 1.6;
+}
+
+body[data-page-id="account"] a {
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+body[data-page-id="account"] :focus-visible {
+  outline: 2px solid var(--sw-accent);
+  outline-offset: 3px;
+}
+
+/* Initial server-rendered loading state */
+body[data-page-id="account"] .keycloak__loading-container {
+  color: var(--sw-text);
+  background: transparent;
+}
+
+body[data-page-id="account"] .keycloak__loading-container::before {
+  width: 152px;
+  height: 51px;
+  margin-bottom: 8px;
+  content: "";
+  background: url("../img/cropped-skill-wanderer-logo-768x256.webp") center /
+    contain no-repeat;
+  border: 1px solid var(--sw-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.2);
+}
+
+body[data-page-id="account"] .keycloak__loading-container .pf-v5-c-spinner {
+  --pf-v5-c-spinner--Color: var(--sw-primary);
+}
+
+body[data-page-id="account"] #loading-text {
+  padding-top: 20px;
+  color: var(--sw-text-muted);
+  font-family: var(--sw-font-family);
+}
+
+/* Application shell */
+body[data-page-id="account"] .pf-v5-c-page,
+body[data-page-id="account"] .pf-v5-c-page__main {
+  color: var(--sw-text);
+  background: transparent;
+}
+
+body[data-page-id="account"] .pf-v5-c-page {
+  min-height: 100vh;
+}
+
+body[data-page-id="account"] .pf-v5-c-page__main {
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+/* Masthead */
+body[data-page-id="account"] .pf-v5-c-masthead {
+  --pf-v5-c-masthead--BackgroundColor: rgba(15, 15, 15, 0.92);
+  min-height: 68px;
+  background: rgba(15, 15, 15, 0.92);
+  border-bottom: 1px solid var(--sw-border);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+body[data-page-id="account"] .pf-v5-c-masthead__brand {
+  padding-block: 8px;
+}
+
+body[data-page-id="account"] .pf-v5-c-masthead .pf-v5-c-brand {
+  width: auto;
+  max-width: 168px;
+  height: 42px;
+  object-fit: contain;
+  border: 1px solid rgba(255, 107, 53, 0.24);
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(255, 107, 53, 0.16);
+}
+
+body[data-page-id="account"] .pf-v5-c-masthead__brand:hover .pf-v5-c-brand {
+  border-color: var(--sw-border-strong);
+  box-shadow: 0 5px 18px rgba(255, 107, 53, 0.25);
+}
+
+body[data-page-id="account"] .pf-v5-c-masthead .pf-v5-c-toolbar,
+body[data-page-id="account"] .pf-v5-c-masthead .pf-v5-c-toolbar__content {
+  background: transparent;
+}
+
+body[data-page-id="account"] .pf-v5-c-masthead .pf-v5-c-button.pf-m-link {
+  color: var(--sw-primary);
+}
+
+body[data-page-id="account"]
+  .pf-v5-c-masthead
+  .pf-v5-c-button.pf-m-link:hover {
+  color: var(--sw-accent);
+}
+
+body[data-page-id="account"] .pf-v5-c-avatar {
+  border: 2px solid var(--sw-border-strong);
+  box-shadow: 0 2px 10px rgba(255, 107, 53, 0.18);
+}
+
+/* Sidebar and navigation */
+body[data-page-id="account"] .pf-v5-c-page__sidebar {
+  --pf-v5-c-page__sidebar--BackgroundColor: rgba(18, 18, 18, 0.97);
+  background: rgba(18, 18, 18, 0.97);
+  border-right: 1px solid var(--sw-border);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+}
+
+body[data-page-id="account"] .pf-v5-c-page__sidebar-body {
+  padding-top: 18px;
+}
+
+body[data-page-id="account"] .pf-v5-c-nav {
+  --pf-v5-c-nav--BackgroundColor: transparent;
+  background: transparent;
+}
+
+body[data-page-id="account"] .pf-v5-c-nav__link {
+  margin: 3px 12px;
+  padding: 12px 16px;
+  color: var(--sw-text-muted);
+  font-weight: 550;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+body[data-page-id="account"] .pf-v5-c-nav__link::after {
+  border: 0;
+}
+
+body[data-page-id="account"] .pf-v5-c-nav__link:hover,
+body[data-page-id="account"] .pf-v5-c-nav__link:focus-visible {
+  color: var(--sw-text-strong);
+  background: rgba(255, 107, 53, 0.08);
+  border-color: rgba(255, 107, 53, 0.22);
+  text-decoration: none;
+}
+
+body[data-page-id="account"] .pf-v5-c-nav__link.pf-m-current,
+body[data-page-id="account"] .pf-v5-c-nav__item.pf-m-current > .pf-v5-c-nav__link,
+body[data-page-id="account"]
+  .pf-v5-c-nav__item.pf-m-expanded
+  > .pf-v5-c-nav__link {
+  color: #ffffff;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 107, 53, 0.22),
+    rgba(255, 217, 61, 0.06)
+  );
+  border-color: rgba(255, 107, 53, 0.34);
+  box-shadow: inset 3px 0 0 var(--sw-primary);
+}
+
+body[data-page-id="account"] .pf-v5-c-nav__toggle {
+  color: var(--sw-primary);
+}
+
+body[data-page-id="account"] .pf-v5-c-nav__subnav {
+  padding-left: 8px;
+}
+
+/* Page heading and the main glass panel */
+body[data-page-id="account"]
+  .pf-v5-c-page__main
+  > .pf-v5-c-page__main-section {
+  width: min(1200px, calc(100% - 64px));
+  max-width: 1200px;
+  margin-inline: auto;
+  color: var(--sw-text);
+  background: transparent;
+  box-sizing: border-box;
+}
+
+body[data-page-id="account"]
+  .pf-v5-c-page__main
+  > .pf-v5-c-page__main-section:first-of-type {
+  padding: 48px 0 22px;
+}
+
+body[data-page-id="account"]
+  .pf-v5-c-page__main
+  > .pf-v5-c-page__main-section:nth-of-type(2) {
+  padding: 30px;
+  margin-bottom: 48px;
+  background: var(--sw-surface-solid);
+  border: 1px solid var(--sw-border);
+  border-radius: 16px;
+  box-shadow: var(--sw-card-shadow);
+  animation: sw-card-in 0.6s ease-out both;
+}
+
+body[data-page-id="account"]
+  .pf-v5-c-page__main-section
+  .pf-v5-c-page__main-section {
+  color: var(--sw-text);
+  background: transparent;
+}
+
+body[data-page-id="account"] [data-testid="page-heading"] {
+  width: fit-content;
+  margin-bottom: 8px;
+  color: var(--sw-primary);
+  background: linear-gradient(135deg, var(--sw-primary), var(--sw-accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--sw-font-family);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
+body[data-page-id="account"]
+  .pf-v5-c-page__main
+  > .pf-v5-c-page__main-section:first-of-type
+  .pf-v5-c-content
+  p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--sw-text-muted);
+  font-size: 1.04rem;
+  overflow-wrap: anywhere;
+}
+
+body[data-page-id="account"] h2,
+body[data-page-id="account"] h3,
+body[data-page-id="account"] h4,
+body[data-page-id="account"] .pf-v5-c-title {
+  color: var(--sw-text-strong);
+  font-family: var(--sw-font-family);
+}
+
+body[data-page-id="account"] h2 {
+  letter-spacing: -0.015em;
+}
+
+body[data-page-id="account"] p,
+body[data-page-id="account"] .pf-v5-c-content,
+body[data-page-id="account"] .pf-v5-c-description-list__description {
+  color: var(--sw-text-muted);
+}
+
+body[data-page-id="account"] strong,
+body[data-page-id="account"] .pf-v5-c-description-list__term {
+  color: var(--sw-text);
+}
+
+/* Forms and controls */
+body[data-page-id="account"] .pf-v5-c-form {
+  width: 100%;
+  max-width: 820px;
+}
+
+body[data-page-id="account"] .pf-v5-c-form__group-control {
+  min-width: 0;
+}
+
+body[data-page-id="account"] .pf-v5-c-form__label,
+body[data-page-id="account"] .pf-v5-c-form__label-text,
+body[data-page-id="account"] .pf-v5-c-check__label,
+body[data-page-id="account"] .pf-v5-c-radio__label {
+  color: var(--sw-text);
+  font-family: var(--sw-font-family);
+  font-weight: 600;
+}
+
+body[data-page-id="account"] .pf-v5-c-form__label-required {
+  color: var(--sw-primary);
+}
+
+body[data-page-id="account"] .pf-v5-c-form-control,
+body[data-page-id="account"] .pf-v5-c-menu-toggle,
+body[data-page-id="account"] .pf-v5-c-search-input {
+  --pf-v5-c-form-control--BackgroundColor: var(--sw-surface-raised);
+  --pf-v5-c-form-control--Color: var(--sw-text);
+  color: var(--sw-text);
+  background: var(--sw-surface-raised);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  box-shadow: none;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+body[data-page-id="account"] .pf-v5-c-form-control::before,
+body[data-page-id="account"] .pf-v5-c-form-control::after,
+body[data-page-id="account"] .pf-v5-c-menu-toggle::before,
+body[data-page-id="account"] .pf-v5-c-menu-toggle::after {
+  border-color: transparent;
+}
+
+body[data-page-id="account"] .pf-v5-c-form-control:focus-within,
+body[data-page-id="account"] .pf-v5-c-menu-toggle:focus,
+body[data-page-id="account"] .pf-v5-c-menu-toggle.pf-m-expanded,
+body[data-page-id="account"] .pf-v5-c-search-input:focus-within {
+  background: #262626;
+  border-color: var(--sw-primary);
+  box-shadow: var(--sw-focus-ring);
+}
+
+body[data-page-id="account"] .pf-v5-c-form-control > input,
+body[data-page-id="account"] .pf-v5-c-form-control > textarea,
+body[data-page-id="account"] .pf-v5-c-form-control > select,
+body[data-page-id="account"] .pf-v5-c-search-input__text-input {
+  color: var(--sw-text);
+  background: transparent;
+  font-family: var(--sw-font-family);
+}
+
+body[data-page-id="account"] input::placeholder,
+body[data-page-id="account"] textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+}
+
+body[data-page-id="account"] .pf-v5-c-form-control.pf-m-disabled,
+body[data-page-id="account"] .pf-v5-c-form-control:has(input:disabled) {
+  color: rgba(255, 255, 255, 0.46);
+  background: #181818;
+  border-color: rgba(255, 255, 255, 0.08);
+  opacity: 0.78;
+}
+
+body[data-page-id="account"] input[type="checkbox"],
+body[data-page-id="account"] input[type="radio"] {
+  accent-color: var(--sw-primary);
+}
+
+body[data-page-id="account"] .pf-v5-c-form__helper-text,
+body[data-page-id="account"] .pf-v5-c-helper-text__item-text {
+  color: var(--sw-text-muted);
+}
+
+body[data-page-id="account"] .pf-v5-c-helper-text__item.pf-m-error,
+body[data-page-id="account"] .pf-v5-c-helper-text__item.pf-m-error * {
+  color: #ff6f68;
+}
+
+/* Buttons */
+body[data-page-id="account"] .pf-v5-c-button {
+  font-family: var(--sw-font-family);
+  font-weight: 650;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease,
+    transform 0.3s ease;
+}
+
+body[data-page-id="account"] .pf-v5-c-button.pf-m-primary {
+  --pf-v5-c-button--m-primary--BackgroundColor: var(--sw-primary);
+  --pf-v5-c-button--m-primary--hover--BackgroundColor: var(--sw-primary-deep);
+  padding-inline: 26px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--sw-primary), var(--sw-primary-deep));
+  border-radius: 999px;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+body[data-page-id="account"] .pf-v5-c-button.pf-m-primary:hover {
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+body[data-page-id="account"] .pf-v5-c-button.pf-m-secondary {
+  --pf-v5-c-button--m-secondary--Color: var(--sw-primary);
+  --pf-v5-c-button--m-secondary--BorderColor: rgba(255, 107, 53, 0.6);
+  padding-inline: 22px;
+  color: var(--sw-primary);
+  background: transparent;
+  border-radius: 999px;
+}
+
+body[data-page-id="account"] .pf-v5-c-button.pf-m-secondary::after {
+  border-color: rgba(255, 107, 53, 0.6);
+  border-radius: 999px;
+}
+
+body[data-page-id="account"] .pf-v5-c-button.pf-m-secondary:hover {
+  color: #ffffff;
+  background: rgba(255, 107, 53, 0.12);
+  transform: translateY(-1px);
+}
+
+body[data-page-id="account"] .pf-v5-c-button.pf-m-link,
+body[data-page-id="account"] .pf-v5-c-button.pf-m-inline {
+  color: var(--sw-primary);
+}
+
+body[data-page-id="account"] .pf-v5-c-button.pf-m-link:hover,
+body[data-page-id="account"] .pf-v5-c-button.pf-m-inline:hover {
+  color: var(--sw-accent);
+  text-decoration: underline;
+}
+
+body[data-page-id="account"] .pf-v5-c-button.pf-m-control,
+body[data-page-id="account"] .pf-v5-c-button.pf-m-plain {
+  color: var(--sw-text-muted);
+  background: transparent;
+  border-radius: 8px;
+}
+
+body[data-page-id="account"] .pf-v5-c-button.pf-m-control:hover,
+body[data-page-id="account"] .pf-v5-c-button.pf-m-plain:hover {
+  color: var(--sw-primary);
+  background: rgba(255, 107, 53, 0.08);
+}
+
+body[data-page-id="account"] .pf-v5-c-button.pf-m-danger {
+  border-radius: 999px;
+}
+
+body[data-page-id="account"] .pf-v5-c-button:disabled,
+body[data-page-id="account"] .pf-v5-c-button.pf-m-disabled {
+  filter: grayscale(0.25);
+  opacity: 0.58;
+  transform: none;
+}
+
+/* Data lists, tables, cards and expandable rows */
+body[data-page-id="account"] .pf-v5-c-data-list,
+body[data-page-id="account"] .pf-v5-c-table,
+body[data-page-id="account"] .pf-v5-c-card {
+  width: 100%;
+  max-width: 100%;
+  color: var(--sw-text);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 107, 53, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+}
+
+body[data-page-id="account"] .pf-v5-c-data-list__item,
+body[data-page-id="account"] .pf-v5-c-data-list__item-row,
+body[data-page-id="account"] .pf-v5-c-table tr,
+body[data-page-id="account"] .pf-v5-c-card {
+  color: var(--sw-text);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+body[data-page-id="account"] .pf-v5-c-data-list__item-row:hover,
+body[data-page-id="account"] .pf-v5-c-table tbody tr:hover {
+  background: rgba(255, 107, 53, 0.055);
+}
+
+body[data-page-id="account"]
+  .pf-v5-c-data-list__item.pf-m-expanded
+  > .pf-v5-c-data-list__item-row,
+body[data-page-id="account"] .pf-v5-c-data-list__expandable-content {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+body[data-page-id="account"] .pf-v5-c-data-list__cell,
+body[data-page-id="account"] .pf-v5-c-data-list__action,
+body[data-page-id="account"] .pf-v5-c-table th,
+body[data-page-id="account"] .pf-v5-c-table td,
+body[data-page-id="account"] .pf-v5-c-card__body,
+body[data-page-id="account"] .pf-v5-c-card__title {
+  color: var(--sw-text);
+}
+
+body[data-page-id="account"] .pf-v5-c-table thead,
+body[data-page-id="account"] #applications-list-header {
+  background: rgba(255, 107, 53, 0.07);
+}
+
+body[data-page-id="account"] .pf-v5-c-data-list__toggle {
+  color: var(--sw-primary);
+}
+
+body[data-page-id="account"] .pf-v5-c-expandable-section__toggle {
+  color: var(--sw-primary);
+}
+
+body[data-page-id="account"] .pf-v5-c-expandable-section__toggle:hover {
+  color: var(--sw-accent);
+}
+
+/* Tabs, toolbars, pagination and popup menus */
+body[data-page-id="account"] .pf-v5-c-tabs,
+body[data-page-id="account"] .pf-v5-c-toolbar,
+body[data-page-id="account"] .pf-v5-c-pagination {
+  color: var(--sw-text);
+  background: transparent;
+}
+
+body[data-page-id="account"] .pf-v5-c-tabs__link {
+  color: var(--sw-text-muted);
+}
+
+body[data-page-id="account"] .pf-v5-c-tabs__item.pf-m-current .pf-v5-c-tabs__link,
+body[data-page-id="account"] .pf-v5-c-tabs__link:hover {
+  color: var(--sw-primary);
+}
+
+body[data-page-id="account"] .pf-v5-c-tabs__item.pf-m-current::after,
+body[data-page-id="account"] .pf-v5-c-tabs__item.pf-m-current .pf-v5-c-tabs__link::after {
+  border-color: var(--sw-primary);
+}
+
+body[data-page-id="account"] .pf-v5-c-menu,
+body[data-page-id="account"] .pf-v5-c-dropdown__menu,
+body[data-page-id="account"] .pf-v5-c-select__menu {
+  color: var(--sw-text);
+  background: #202020;
+  border: 1px solid var(--sw-border);
+  border-radius: 10px;
+  box-shadow: var(--sw-card-shadow);
+}
+
+body[data-page-id="account"] .pf-v5-c-menu__item,
+body[data-page-id="account"] .pf-v5-c-dropdown__menu-item,
+body[data-page-id="account"] .pf-v5-c-select__menu-item {
+  color: var(--sw-text);
+  background: transparent;
+}
+
+body[data-page-id="account"] .pf-v5-c-menu__item:hover,
+body[data-page-id="account"] .pf-v5-c-dropdown__menu-item:hover,
+body[data-page-id="account"] .pf-v5-c-select__menu-item:hover {
+  color: #ffffff;
+  background: rgba(255, 107, 53, 0.12);
+}
+
+body[data-page-id="account"] .pf-v5-c-divider,
+body[data-page-id="account"] hr {
+  border-color: rgba(255, 107, 53, 0.16);
+}
+
+/* Alerts, badges and status labels */
+body[data-page-id="account"] .pf-v5-c-alert {
+  color: var(--sw-text);
+  background: #202020;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  box-shadow: var(--sw-card-shadow);
+}
+
+body[data-page-id="account"] .pf-v5-c-alert.pf-m-success {
+  background: rgba(76, 175, 80, 0.1);
+  border-color: rgba(76, 175, 80, 0.35);
+}
+
+body[data-page-id="account"] .pf-v5-c-alert.pf-m-danger {
+  background: rgba(244, 67, 54, 0.1);
+  border-color: rgba(244, 67, 54, 0.35);
+}
+
+body[data-page-id="account"] .pf-v5-c-alert.pf-m-warning {
+  background: rgba(255, 217, 61, 0.09);
+  border-color: rgba(255, 217, 61, 0.32);
+}
+
+body[data-page-id="account"] .pf-v5-c-alert.pf-m-info {
+  background: rgba(66, 165, 245, 0.1);
+  border-color: rgba(66, 165, 245, 0.32);
+}
+
+body[data-page-id="account"] .pf-v5-c-alert__title,
+body[data-page-id="account"] .pf-v5-c-alert__description {
+  color: var(--sw-text);
+}
+
+body[data-page-id="account"] .pf-v5-c-label {
+  border-radius: 999px;
+}
+
+/* Modals and overlays */
+body[data-page-id="account"] .pf-v5-c-backdrop {
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+body[data-page-id="account"] .pf-v5-c-modal-box {
+  color: var(--sw-text);
+  background: #1c1c1c;
+  border: 1px solid var(--sw-border);
+  border-radius: 16px;
+  box-shadow: var(--sw-card-shadow-hover);
+}
+
+body[data-page-id="account"] .pf-v5-c-modal-box__title,
+body[data-page-id="account"] .pf-v5-c-modal-box__body {
+  color: var(--sw-text);
+}
+
+body[data-page-id="account"] .pf-v5-c-popover__content {
+  color: var(--sw-text);
+  background: #202020;
+  border: 1px solid var(--sw-border);
+  border-radius: 10px;
+  box-shadow: var(--sw-card-shadow);
+}
+
+/* Empty and loading states */
+body[data-page-id="account"] .pf-v5-c-empty-state,
+body[data-page-id="account"] .pf-v5-c-bullseye {
+  color: var(--sw-text-muted);
+}
+
+body[data-page-id="account"] .pf-v5-c-empty-state__icon,
+body[data-page-id="account"] .pf-v5-c-spinner {
+  color: var(--sw-primary);
+}
+
+@keyframes sw-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  body[data-page-id="account"] .pf-v5-c-masthead {
+    min-height: 62px;
+  }
+
+  body[data-page-id="account"] .pf-v5-c-masthead .pf-v5-c-brand {
+    max-width: 132px;
+    height: 36px;
+  }
+
+  body[data-page-id="account"] .pf-v5-c-page__sidebar {
+    border-right-color: var(--sw-border-strong);
+    box-shadow: 16px 0 40px rgba(0, 0, 0, 0.52);
+  }
+
+  body[data-page-id="account"]
+    .pf-v5-c-page__main
+    > .pf-v5-c-page__main-section {
+    width: min(100% - 32px, 1200px);
+  }
+
+  body[data-page-id="account"]
+    .pf-v5-c-page__main
+    > .pf-v5-c-page__main-section:first-of-type {
+    padding: 32px 0 18px;
+  }
+
+  body[data-page-id="account"]
+    .pf-v5-c-page__main
+    > .pf-v5-c-page__main-section:nth-of-type(2) {
+    padding: 20px;
+    margin-bottom: 32px;
+    border-radius: 12px;
+  }
+
+  body[data-page-id="account"] [data-testid="page-heading"] {
+    font-size: clamp(1.85rem, 9vw, 2.45rem);
+  }
+
+  body[data-page-id="account"] .pf-v5-c-form.pf-m-horizontal {
+    --pf-v5-c-form--m-horizontal--GridGap: 18px;
+  }
+
+  body[data-page-id="account"] .pf-v5-c-data-list__item-row {
+    padding-block: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  body[data-page-id="account"]
+    .pf-v5-c-page__main
+    > .pf-v5-c-page__main-section {
+    width: min(100% - 20px, 1200px);
+  }
+
+  body[data-page-id="account"]
+    .pf-v5-c-page__main
+    > .pf-v5-c-page__main-section:nth-of-type(2) {
+    padding: 16px;
+  }
+
+  body[data-page-id="account"]
+    .pf-v5-c-form__actions
+    > .pf-v5-c-button.pf-m-primary,
+  body[data-page-id="account"]
+    .pf-v5-c-form__actions
+    > .pf-v5-c-button.pf-m-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body[data-page-id="account"] .pf-v5-c-form__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-page-id="account"] *,
+  body[data-page-id="account"] *::before,
+  body[data-page-id="account"] *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -92,17 +92,18 @@ docker pull ghcr.io/skill-wanderer/keycloak-sso/keycloak-skill-wanderer:latest
 
 ### Skill-Wanderer Theme
 
-The `skill-wanderer-theme` provides a modern, bright orange-themed login experience:
+The `skill-wanderer-theme` provides matching dark-first login and account-management experiences:
 
 - **Location**: `themes/skill-wanderer-theme/`
-- **Type**: Login theme
+- **Type**: Login theme and Keycloak v3 account theme
 - **Features**: 
-  - Bright orange branding (#FF6B35)
-  - Modern card-based design
+  - Skill-Wanderer orange and yellow branding
+  - Dark glass cards and branded account navigation
   - Responsive layout
   - Custom Skill-Wanderer logo
   - Accessibility features
-  - **Tailwind CSS** for styling
+  - **Tailwind CSS** for the login pages
+  - **PatternFly 5 token overrides** for the account console
 
 ### Theme Development with Tailwind CSS
 
@@ -123,7 +124,7 @@ npm run dev
 npm run build
 ```
 
-The Tailwind source file is at `themes/skill-wanderer-theme/login/resources/css/src/input.css` and outputs to `themes/skill-wanderer-theme/login/resources/css/tailwind.css`.
+The Tailwind source file is at `themes/skill-wanderer-theme/login/resources/css/src/input.css` and outputs to `themes/skill-wanderer-theme/login/resources/css/tailwind.css`. The account console uses standalone CSS at `themes/skill-wanderer-theme/account/resources/css/account.css` and does not require a separate build step.
 
 ### Custom Tailwind Configuration
 
@@ -248,9 +249,9 @@ POSTGRES_PASSWORD: keycloak              # Database password
 1. **Access Admin Console**: http://localhost:8080/admin
 2. **Login** with admin credentials
 3. **Navigate** to Realm Settings → Themes
-4. **Select** "skill-wanderer-theme" for Login Theme
+4. **Select** "skill-wanderer-theme" for both Login Theme and Account Theme
 5. **Save** the configuration
-6. **Test** by accessing a realm's login page
+6. **Test** the login page and the realm's `/account/` console
 
 ## File Structure
 
