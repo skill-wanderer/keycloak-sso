@@ -67,6 +67,31 @@
     background: rgba(255, 255, 255, 0.07);
   }
 
+  /* Password visibility toggle – icon button inside the input's right edge */
+  .password-toggle-custom {
+    @apply absolute inset-y-0 right-0 flex items-center px-4
+           cursor-pointer transition-all duration-300;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .password-toggle-custom:hover {
+    color: var(--primary-orange);
+  }
+
+  .password-toggle-custom:focus-visible {
+    color: var(--primary-orange);
+    outline: 2px solid var(--accent-yellow);
+    outline-offset: -2px;
+    border-radius: 8px;
+  }
+
+  /* Edge adds its own reveal button to password inputs – hide it where the toggle is present */
+  .form-input-custom:has(+ .password-toggle-custom)::-ms-reveal {
+    display: none;
+  }
+
   /* Primary button – orange gradient with pill shape */
   .btn-primary-custom {
     @apply w-full mt-5 py-3.5 px-7 font-semibold text-base
